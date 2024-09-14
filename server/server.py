@@ -129,9 +129,11 @@ def ServerPut():
         except:
             print("Timeout or some other error")
             sys.exit()
-
+        print("Count: ", Count)
         tillI = Count.decode('utf8')
         tillI = int(tillI)
+        # tillI = 23
+        # print("tillI: ", tillI)
 
         #tillI = 100
         #tillI = tillI - 2
@@ -157,6 +159,7 @@ def ServerPut():
 
         #Bigstr = ''.join(map(str, Big))
         BigSAgain.close()
+        # os.remove(t2[1])
         print("New file closed. Check contents in your directory.")
         #Bigstr = str(Big)
         # print(Big)
@@ -213,6 +216,7 @@ while True:
         print("Go to get func")
         ServerGet(t2[1])
     elif t2[0] == "put":
+        print("t2: ", t2)
         print("Go to put func")
         ServerPut()
     elif t2[0] == "list":

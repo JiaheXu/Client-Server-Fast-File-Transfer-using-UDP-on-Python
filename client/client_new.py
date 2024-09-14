@@ -80,17 +80,9 @@ def ClientGet(a):
         
         
 """
-
+data_idx = 0
 while True:
-    command = input(
-        "Please enter a command: \n1. get [file_name]\n2. put [file_name]\n3. list\n4. exit\n ")
-    print("command: ", command)
-    for idx,i in enumerate(command):
-        print(idx, ":",i)
-    """o get [file_name]
-    o put [file_name]
-    o list
-    o exit"""
+    command = 'put test.jpg'
     CommClient = command.encode('utf-8')
     try:
         s.sendto(CommClient, (host, port))
@@ -100,6 +92,8 @@ while True:
         sys.exit()
     #text1 = CommClient.decode('utf-8')
     #t3 = text1.split()
+
+    print("cmd: ",command )
     CL = command.split()
     print(
         "We shall proceed, but you may want to check Server command prompt for messages, if any.")
@@ -258,6 +252,10 @@ while True:
             sys.exit()
         text = ClientData.decode('utf8')
         print(text)
+    print("finished ", data_idx)
+    data_idx += 1
+    time.sleep(4.0)
+
 
 print("Program will end now. ")  # though, this won't get executed.
 quit()
